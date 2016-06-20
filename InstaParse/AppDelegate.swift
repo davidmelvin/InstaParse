@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Initialize Parse
+        // Set applicationId and server based on the values in the Heroku settings.
+        // clientKey is not used on Parse open source unless explicitly configured
+        Parse.initializeWithConfiguration(
+            ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
+                configuration.applicationId = "InstaParse"
+                configuration.clientKey = "aalskdjfpwoeifap04ibn[0dinba[odsan"  // set to nil assuming you have not set clientKey
+                configuration.server = "http://desolate-springs-38694.herokuapp.com/parse"
+            })
+        )
+        
+        // check if user is logged in.
+        if PFUser.currentUser() != nil {
+            // if there is a logged in user then load the home view controller
+            
+            window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let loginViewController = storyboard.instantiateViewControllerWithIdentifier("PhotoFeedViewController")
+            
+            window?.rootViewController = loginViewController
+            window?.makeKeyAndVisible()
+            //self.presentViewController(loginViewController, animated:true, completion:nil)
+        }
+            
         return true
     }
 

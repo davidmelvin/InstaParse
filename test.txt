@@ -1,0 +1,1 @@
+curl -X POST -H "X-Parse-Application-Id: InstaParse" -H "X-Parse-Master-Key: aalskdjfpwoeifap04ibn[0dinba[odsan" -H "Content-Type: application/json" -d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}' https://desolate-springs-38694.herokuapp.com/parse/classes/GameScore
