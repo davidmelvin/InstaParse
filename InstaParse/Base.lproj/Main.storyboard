@@ -17,7 +17,7 @@
                                 <rect key="frame" x="21" y="83" width="79" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Pso-yO-xsF">
@@ -44,7 +44,7 @@
                                 <rect key="frame" x="25" y="200" width="74" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Iax-QI-aGI">
@@ -62,17 +62,17 @@
                     <connections>
                         <outlet property="passwordField" destination="Pso-yO-xsF" id="2Xz-Mi-Vx4"/>
                         <outlet property="usernameField" destination="sYy-1g-QLd" id="8JL-oR-AGm"/>
-                        <segue destination="AP7-t7-CUT" kind="modal" identifier="loginSegue" id="mq1-Hk-5Zu"/>
+                        <segue destination="CMD-dF-bW9" kind="modal" identifier="loginSegue" id="mq1-Hk-5Zu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="162.5" y="377.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="1t4-X1-FRp">
             <objects>
-                <viewController storyboardIdentifier="PhotoFeedViewController" id="AP7-t7-CUT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoFeedViewController" id="AP7-t7-CUT" customClass="PhotoFeedViewController" customModule="InstaParse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jJQ-kW-wnj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,17 +81,112 @@
                                 <rect key="frame" x="102" y="207" width="88" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cDk-YH-Tbf">
+                                <rect key="frame" x="305" y="20" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="onLogOut:" destination="AP7-t7-CUT" eventType="touchUpInside" id="QQn-Kt-Ukt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="ftF-zE-X4T"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zKs-1k-Dcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="580.5" y="377.5"/>
+            <point key="canvasLocation" x="1206.5" y="-128.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8Fw-Hk-Ysg">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="CMD-dF-bW9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="EcH-Zg-zfM">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="AP7-t7-CUT" kind="relationship" relationship="viewControllers" id="wuQ-HL-oIF"/>
+                        <segue destination="TQa-rz-ToM" kind="relationship" relationship="viewControllers" id="UUi-GE-cbn"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wvh-tE-g5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="640.5" y="377.5"/>
+        </scene>
+        <!--Camera-->
+        <scene sceneID="WCI-Eb-a87">
+            <objects>
+                <viewController id="TQa-rz-ToM" customClass="ChoosePhotoViewController" customModule="InstaParse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yZ5-JK-0Yc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zY1-qS-0XN">
+                                <rect key="frame" x="29" y="43" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Use Photo Library"/>
+                                <connections>
+                                    <action selector="openPhotoLibrary:" destination="TQa-rz-ToM" eventType="touchUpInside" id="GC4-F6-Oew"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1c2-S8-iOe">
+                                <rect key="frame" x="248" y="43" width="85" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Use Camera"/>
+                                <connections>
+                                    <action selector="useCamera:" destination="TQa-rz-ToM" eventType="touchUpInside" id="Cf8-by-8uc"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InstaParse.jpg" id="IJF-fd-84W">
+                                <rect key="frame" x="67" y="203" width="240" height="236"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xeb-9g-h8n">
+                                <rect key="frame" x="150" y="554" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Post Photo"/>
+                                <connections>
+                                    <action selector="postPhoto:" destination="TQa-rz-ToM" eventType="touchUpInside" id="3UL-w8-vqB"/>
+                                    <action selector="useCamera:" destination="TQa-rz-ToM" eventType="touchUpInside" id="Flx-LQ-W71"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xso-Ji-WuC">
+                                <rect key="frame" x="24" y="461" width="60" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="cwP-ig-Fr2">
+                                <rect key="frame" x="29" y="490" width="311" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Camera" id="erF-nh-guv"/>
+                    <connections>
+                        <outlet property="captionField" destination="cwP-ig-Fr2" id="iP0-LT-nRr"/>
+                        <outlet property="captionLabel" destination="xso-Ji-WuC" id="Q4t-va-jPG"/>
+                        <outlet property="postButton" destination="Xeb-9g-h8n" id="fSK-Pl-Gf8"/>
+                        <outlet property="selectedImageOutlet" destination="IJF-fd-84W" id="Chv-8c-6WG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="alW-Is-SkD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1216.5" y="644.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="InstaParse.jpg" width="600" height="399"/>
+    </resources>
 </document>

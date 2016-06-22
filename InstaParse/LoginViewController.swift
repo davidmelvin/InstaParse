@@ -33,7 +33,26 @@ class LoginViewController: UIViewController {
         
         PFUser.logInWithUsernameInBackground(username, password: password) { (user: PFUser?, error: NSError?) in
             
-            if user != nil {
+        if let error = error {
+            
+                let alertController = UIAlertController(title: "Registration Error", message: error.localizedDescription, preferredStyle: .Alert)
+                
+                // create a cancel action
+                let cancelAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+                    // handle cancel response here. Doing nothing will dismiss the view.
+                }
+                // add the cancel action to the alertController
+                alertController.addAction(cancelAction)
+                
+                
+                self.presentViewController(alertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
+                
+                print(error.localizedDescription)
+            
+            }
+        else {
                 print("User \(self.usernameField.text!) has logged in")
                 self.performSegueWithIdentifier("loginSegue", sender:  nil)
             }
@@ -56,10 +75,25 @@ class LoginViewController: UIViewController {
         // call sign up function on the object
         newUser.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if let error = error {
-                print(error.localizedDescription)
-                if error.code == 202 {
-                    print("Username is taken")
+                
+                let alertController = UIAlertController(title: "Registration Error", message: error.localizedDescription, preferredStyle: .Alert)
+                
+                // create a cancel action
+                let cancelAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+                    // handle cancel response here. Doing nothing will dismiss the view.
                 }
+                // add the cancel action to the alertController
+                alertController.addAction(cancelAction)
+                
+                
+                self.presentViewController(alertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
+                
+                print(error.localizedDescription)
+//                if error.code == 202 {
+//                    print("Username is taken")
+//                }
                 
             } else {
                 print("User Registered successfully")

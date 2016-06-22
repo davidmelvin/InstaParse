@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Parse
 
 class PhotoFeedViewController: UIViewController {
+    
+    var window: UIWindow?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,21 @@ class PhotoFeedViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onLogOut(sender: AnyObject) {
+        PFUser.logOutInBackgroundWithBlock { (error: NSError?) in
+            // PFUser.currentUser() will now be nil
+            
+            
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let loginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
+            
+            self.window?.rootViewController = loginViewController
+            self.window?.makeKeyAndVisible()
+        }
+    }
 
     /*
     // MARK: - Navigation

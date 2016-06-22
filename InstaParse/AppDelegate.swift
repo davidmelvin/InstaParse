@@ -37,11 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let loginViewController = storyboard.instantiateViewControllerWithIdentifier("PhotoFeedViewController")
+            let loginViewController = storyboard.instantiateViewControllerWithIdentifier("MainTabBarController")
             
             window?.rootViewController = loginViewController
             window?.makeKeyAndVisible()
-            //self.presentViewController(loginViewController, animated:true, completion:nil)
+            
         }
             
         return true
