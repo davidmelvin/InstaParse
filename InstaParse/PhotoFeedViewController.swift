@@ -10,27 +10,40 @@ import UIKit
 import Parse
 import ParseUI
 
-class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     var window: UIWindow?
     @IBOutlet weak var homeFeedTableView: UITableView!
     
     var postsArray : [PFObject] = []
+    var isMoreDataLoading = false
+    let refreshControl = UIRefreshControl()
+    var infiniteScrollCount = 0
+    let POSTSPERSCROLL = 20
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Initialize a UIRefreshControl
+        
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        homeFeedTableView.insertSubview(refreshControl, atIndex: 0)
         
         homeFeedTableView.dataSource = self
         homeFeedTableView.delegate = self
 
         // Do any additional setup after loading the view.
         
+        refreshControlAction(refreshControl)
+        
+        }
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
         // construct PFQuery
         let query = PFQuery(className: "Post")
         query.orderByDescending("createdAt")
         query.includeKey("author")
-        query.limit = 20
-        
+        query.limit = (infiniteScrollCount+1)*POSTSPERSCROLL
         
         
         // fetch data asynchronously
@@ -40,12 +53,32 @@ class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.postsArray = posts
                 print("Found \(self.postsArray.count) objects")
                 self.homeFeedTableView.reloadData()
+                refreshControl.endRefreshing()
+                self.isMoreDataLoading = false
             } else {
                 // handle error
                 print(error?.localizedDescription)
             }
         }
         self.homeFeedTableView.reloadData()
+
+    
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            // Calculate the position of one screen length before the bottom of the results
+            let scrollViewContentHeight = homeFeedTableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - homeFeedTableView.bounds.size.height
+            
+            // When the user has scrolled past the threshold, start requesting
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && homeFeedTableView.dragging) {
+                isMoreDataLoading = true
+                infiniteScrollCount += 1
+                
+            refreshControlAction(refreshControl)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,12 +87,7 @@ class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (self.postsArray.count > 20) {
-            return 20
-        }
-        else {
             return self.postsArray.count
-        }
     }
     
     
@@ -76,8 +104,6 @@ class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         //cell.postLocation.text = self.postsArray[indexPath.row]["location"]
         cell.postImage.file = self.postsArray[indexPath.row]["media"] as? PFFile
         cell.postImage.loadInBackground()
-
-        //cell.postUserImage.text = self.postsArray[indexPath.row]["createdAt"].date
         
 
         return cell
@@ -101,14 +127,22 @@ class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let button = sender as! UIButton
+        let view = button.superview!
+        let cell = view.superview as! PostTableViewCell
+        let indexPath = homeFeedTableView.indexPathForCell(cell)
+        let post = postsArray[indexPath!.row]
+        let detailViewController = segue.destinationViewController as! PostDetailViewController
+        detailViewController.post = post
+        
     }
-    */
+    
 
 }

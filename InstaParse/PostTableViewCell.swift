@@ -29,11 +29,4 @@ class PostTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    @IBAction func postLikePressed(sender: AnyObject) {
-        print("Liked __ post")
-    }
-
-    @IBAction func postCommentPressed(sender: AnyObject) {
-        print("Comment ___ post button")
-    }
 }

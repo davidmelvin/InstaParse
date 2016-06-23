@@ -13,14 +13,14 @@ The following **required** functionality is completed:
 - [x] The current signed in user is persisted across app restarts
 - [x] User can take a photo, add a caption, and post it to "Instagram"
 - [x] User can view the last 20 posts submitted to "Instagram"
-- [ ] User can pull to refresh the last 20 posts submitted to "Instagram"
-- [ ] User can load more posts once he or she reaches the bottom of the feed using infinite Scrolling
-- [ ] User can tap a post to view post details, including timestamp and creation
+- [x] User can pull to refresh the last 20 posts submitted to "Instagram"
+- [x] User can load more posts once he or she reaches the bottom of the feed using infinite Scrolling
+- [x] User can tap a post to view post details, including timestamp and creation
 - [ ] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user.
 
 The following **optional** features are implemented:
 
-- [ ] Show the username and creation time for each post
+- [x] Show the username and creation time for each post
 - [ ] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse.
 - [ ] User Profiles:
 - [ ] Allow the logged in user to add a profile photo
@@ -34,6 +34,10 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
+- [ ] Time stamp shows time since post
+- [ ] Double tap to like
+- [ ] Fade in images
+- [ ] Show progress HUDs when loading things
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
