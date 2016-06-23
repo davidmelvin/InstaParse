@@ -16,6 +16,9 @@ class ChoosePhotoViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var captionField: UITextField!
     @IBOutlet weak var captionLabel: UILabel!
+    
+    var originalImage : UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,8 +43,8 @@ class ChoosePhotoViewController: UIViewController, UIImagePickerControllerDelega
         self.postButton.hidden = false
         
         // Get the image captured by the UIImagePickerController
-        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        self.originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        //let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         selectedImageOutlet.image = originalImage
         
@@ -74,10 +77,11 @@ class ChoosePhotoViewController: UIViewController, UIImagePickerControllerDelega
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
-//    @IBAction func postPhoto(sender: AnyObject) {
-//        //how do i pass it a photo?
-//        Post.postUserImage(originalImage, withCaption: self.captionField.text, withCompletion: nil)
-//    }
+    @IBAction func postPhoto(sender: AnyObject) {
+        //how do i pass it a photo?
+        Post.postUserImage(self.originalImage, withCaption: self.captionField.text, withCompletion: nil)
+        print("Image posted with caption \(self.captionField.text)")
+    }
     
     /*
     // MARK: - Navigation

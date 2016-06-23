@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		155F19D31D18B0CF0003C9FA /* PhotoFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F19D21D18B0CF0003C9FA /* PhotoFeedViewController.swift */; };
 		155F19D51D19F21D0003C9FA /* ChoosePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F19D41D19F21D0003C9FA /* ChoosePhotoViewController.swift */; };
+		15845EF41D1B3BD100C507AD /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15845EF31D1B3BD100C507AD /* PostTableViewCell.swift */; };
+		15845EF61D1B3F4600C507AD /* heart_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15845EF51D1B3F4600C507AD /* heart_icon.png */; };
+		15845EFA1D1B56BC00C507AD /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 15845EF91D1B56BC00C507AD /* user.png */; };
 		15B926251D18901B00199E21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B926241D18901B00199E21 /* AppDelegate.swift */; };
 		15B926271D18901B00199E21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B926261D18901B00199E21 /* ViewController.swift */; };
 		15B9262A1D18901B00199E21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B926281D18901B00199E21 /* Main.storyboard */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		155F19D21D18B0CF0003C9FA /* PhotoFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoFeedViewController.swift; sourceTree = "<group>"; };
 		155F19D41D19F21D0003C9FA /* ChoosePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePhotoViewController.swift; sourceTree = "<group>"; };
+		15845EF31D1B3BD100C507AD /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		15845EF51D1B3F4600C507AD /* heart_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heart_icon.png; path = ../../../Desktop/heart_icon.png; sourceTree = "<group>"; };
+		15845EF91D1B56BC00C507AD /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		15B926211D18901B00199E21 /* InstaParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B926241D18901B00199E21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15B926261D18901B00199E21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 				15B926241D18901B00199E21 /* AppDelegate.swift */,
 				15B926261D18901B00199E21 /* ViewController.swift */,
 				15B926281D18901B00199E21 /* Main.storyboard */,
+				15845EF91D1B56BC00C507AD /* user.png */,
 				15B9262B1D18901B00199E21 /* Assets.xcassets */,
 				15B9262D1D18901B00199E21 /* LaunchScreen.storyboard */,
 				15B926301D18901B00199E21 /* Info.plist */,
@@ -94,6 +101,8 @@
 				155F19D21D18B0CF0003C9FA /* PhotoFeedViewController.swift */,
 				155F19D41D19F21D0003C9FA /* ChoosePhotoViewController.swift */,
 				15BCB08D1D1A104800DED078 /* Post.swift */,
+				15845EF31D1B3BD100C507AD /* PostTableViewCell.swift */,
+				15845EF51D1B3F4600C507AD /* heart_icon.png */,
 			);
 			path = InstaParse;
 			sourceTree = "<group>";
@@ -170,6 +179,8 @@
 				15B9262F1D18901B00199E21 /* LaunchScreen.storyboard in Resources */,
 				15B9262C1D18901B00199E21 /* Assets.xcassets in Resources */,
 				15BCB0901D1A152500DED078 /* Assets.xcassets in Resources */,
+				15845EF61D1B3F4600C507AD /* heart_icon.png in Resources */,
+				15845EFA1D1B56BC00C507AD /* user.png in Resources */,
 				15B9262A1D18901B00199E21 /* Main.storyboard in Resources */,
 				15BCB0921D1A153200DED078 /* InstaParse.jpg in Resources */,
 			);
@@ -230,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15845EF41D1B3BD100C507AD /* PostTableViewCell.swift in Sources */,
 				155F19D51D19F21D0003C9FA /* ChoosePhotoViewController.swift in Sources */,
 				15B926371D18954300199E21 /* LoginViewController.swift in Sources */,
 				155F19D31D18B0CF0003C9FA /* PhotoFeedViewController.swift in Sources */,
