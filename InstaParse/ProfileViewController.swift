@@ -16,37 +16,38 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     
     var posts : [PFObject] = []
     var refreshControl = UIRefreshControl()
-
+    
     @IBOutlet weak var profileCollectionView: UICollectionView!
     @IBOutlet weak var noPostsLabel: UILabel!
     var user : PFUser = PFUser.currentUser()!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         profileCollectionView.dataSource = self
         
-        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
-        profileCollectionView.insertSubview(refreshControl, atIndex: 0)
+        self.refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.profileCollectionView.insertSubview(refreshControl, atIndex: 0)
         
         refreshControlAction(refreshControl)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return posts.count
-        }
-        
+        return posts.count
+    }
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("profilePhotoCell", forIndexPath: indexPath) as! ProfileCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("profilePhotoCell", forIndexPath: indexPath) as! ProfileCollectionViewCell
         
-           cell.profileCellImageView.file = posts[indexPath.item]["media"] as? PFFile
-            cell.profileCellImageView.loadInBackground()
-            return cell
-        }
+        cell.profileCellImageView.file = posts[indexPath.item]["media"] as? PFFile
+        cell.profileCellImageView.loadInBackground()
+        return cell
+    }
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
         // construct PFQuery
@@ -75,10 +76,10 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
                 print(error?.localizedDescription)
             }
         }
+        //self.profileCollectionView.reloadData()
         self.profileCollectionView.reloadData()
-    
-    
     }
+    
     @IBAction func onLogOut(sender: AnyObject) {
         PFUser.logOutInBackgroundWithBlock { (error: NSError?) in
             // PFUser.currentUser() will now be nil
@@ -113,5 +114,5 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
 
 
 
- 
+
 

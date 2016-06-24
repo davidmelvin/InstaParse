@@ -30,6 +30,7 @@ class PostDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
         self.postDetailImageView.file = self.post!["media"] as? PFFile
         self.postDetailImageView.loadInBackground()
         self.postDetailUsernameLabel.text = self.post!["author"].username

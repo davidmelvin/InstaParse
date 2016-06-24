@@ -24,6 +24,7 @@ class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
         
         // Initialize a UIRefreshControl
         

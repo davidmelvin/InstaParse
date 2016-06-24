@@ -21,6 +21,7 @@ class ChoosePhotoViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
 
         // Do any additional setup after loading the view.
         self.captionField.hidden = true

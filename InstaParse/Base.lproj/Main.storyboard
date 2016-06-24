@@ -328,6 +328,10 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="7H4-YI-seK" appends="YES" id="E7y-p3-tpT"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" id="erF-nh-guv"/>
                     <connections>
@@ -338,6 +342,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="alW-Is-SkD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7H4-YI-seK"/>
             </objects>
             <point key="canvasLocation" x="1206.5" y="1376.5"/>
         </scene>
@@ -353,9 +358,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l9U-jy-CbP">
-                                <rect key="frame" x="0.0" y="62" width="375" height="492"/>
-                                <color key="backgroundColor" red="0.93375739283021075" green="0.99763298051252824" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This user doesn't have any pictures yet!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ0-LX-WWi">
+                                <rect key="frame" x="36" y="571" width="303" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l9U-jy-CbP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="492"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BZp-gH-y5c">
                                     <size key="itemSize" width="108" height="101"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -374,7 +384,7 @@
                                                     <rect key="frame" x="0.0" y="-9" width="116" height="118"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8j1-99-qbp">
-                                                    <rect key="frame" x="0.0" y="-9" width="116" height="118"/>
+                                                    <rect key="frame" x="-5" y="-9" width="121" height="118"/>
                                                     <connections>
                                                         <segue destination="zPL-Kc-0LC" kind="push" id="4vD-CU-1g6"/>
                                                     </connections>
@@ -388,12 +398,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This user doesn't have any pictures yet!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ0-LX-WWi">
-                                <rect key="frame" x="36" y="571" width="303" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -466,7 +470,7 @@
         <image name="user.png" width="700" height="700"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8E7-rp-tv7"/>
         <segue reference="BEf-LH-TlK"/>
+        <segue reference="4vD-CU-1g6"/>
     </inferredMetricsTieBreakers>
 </document>
