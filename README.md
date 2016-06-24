@@ -2,7 +2,7 @@
 
 **InstaParse** is a photo sharing app using Parse as its backend.
 
-Time spent: **s2.5** hours spent in total
+Time spent: **s9** hours spent in total
 
 ## User Stories
 
@@ -16,7 +16,7 @@ The following **required** functionality is completed:
 - [x] User can pull to refresh the last 20 posts submitted to "Instagram"
 - [x] User can load more posts once he or she reaches the bottom of the feed using infinite Scrolling
 - [x] User can tap a post to view post details, including timestamp and creation
-- [ ] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user.
+- [x] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user.
 
 The following **optional** features are implemented:
 
@@ -38,6 +38,7 @@ The following **additional** features are implemented:
 - [ ] Double tap to like
 - [ ] Fade in images
 - [ ] Show progress HUDs when loading things
+- [ ] Sticky Header
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 

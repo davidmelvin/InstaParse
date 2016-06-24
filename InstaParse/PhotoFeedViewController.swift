@@ -108,7 +108,6 @@ class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableVie
 
         return cell
     }
-    
     @IBAction func onLogOut(sender: AnyObject) {
         PFUser.logOutInBackgroundWithBlock { (error: NSError?) in
             // PFUser.currentUser() will now be nil
@@ -124,6 +123,8 @@ class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableVie
             self.window?.makeKeyAndVisible()
         }
     }
+    
+    
     
     
 

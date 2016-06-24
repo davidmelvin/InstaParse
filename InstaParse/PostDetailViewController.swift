@@ -12,6 +12,8 @@ import ParseUI
 
 class PostDetailViewController: UIViewController {
     
+    var window: UIWindow?
+    
     var post: PFObject?
     
     @IBOutlet weak var postDetailUsernameLabel: UILabel!
@@ -29,21 +31,14 @@ class PostDetailViewController: UIViewController {
         super.viewDidLoad()
         self.postDetailImageView.file = self.post!["media"] as? PFFile
         self.postDetailImageView.loadInBackground()
-        
-//        cell.postImage.file = self.postsArray[indexPath.row]["media"] as? PFFile
-//        cell.postImage.loadInBackground()
-        
         self.postDetailUsernameLabel.text = self.post!["author"].username
         let dateUpdated = self.post!.createdAt! as NSDate
         let dateFormat = NSDateFormatter()
         dateFormat.dateFormat = "EEE, MMM d, h:mm a"
         self.postDetailTimeLabel.text = NSString(format: "%@", dateFormat.stringFromDate(dateUpdated)) as String
         
-        
-        
         print(post)
-        
-        //postImage.file = self.kgjhdchfrdhglnuedkfgbdjduccchlbdpostsArray[indexPath.row]["media"] as? PFFile
+
 
         // Do any additional setup after loading the view.
     }
@@ -51,6 +46,22 @@ class PostDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func onLogOut(sender: AnyObject) {
+        PFUser.logOutInBackgroundWithBlock { (error: NSError?) in
+            // PFUser.currentUser() will now be nil
+            
+            
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let loginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
+            
+            self.window?.rootViewController = loginViewController
+            self.window?.makeKeyAndVisible()
+        }
     }
     
 
