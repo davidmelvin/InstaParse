@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseUI
+import MBProgressHUD
 
 class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
@@ -45,7 +46,7 @@ class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         query.includeKey("author")
         query.limit = (infiniteScrollCount+1)*POSTSPERSCROLL
         
-        
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         // fetch data asynchronously
         query.findObjectsInBackgroundWithBlock { (posts: [PFObject]?, error: NSError?) -> Void in
             if let posts = posts {
@@ -53,6 +54,7 @@ class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.postsArray = posts
                 print("Found \(self.postsArray.count) objects")
                 self.homeFeedTableView.reloadData()
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 refreshControl.endRefreshing()
                 self.isMoreDataLoading = false
             } else {
@@ -135,13 +137,25 @@ class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let button = sender as! UIButton
-        let view = button.superview!
-        let cell = view.superview as! PostTableViewCell
-        let indexPath = homeFeedTableView.indexPathForCell(cell)
-        let post = postsArray[indexPath!.row]
-        let detailViewController = segue.destinationViewController as! PostDetailViewController
-        detailViewController.post = post
+        if segue.identifier == "postDetailSegue" {
+            let button = sender as! UIButton
+            let view = button.superview!
+            let cell = view.superview as! PostTableViewCell
+            let indexPath = homeFeedTableView.indexPathForCell(cell)
+            let post = postsArray[indexPath!.row]
+            let detailViewController = segue.destinationViewController as! PostDetailViewController
+            detailViewController.post = post
+        }
+        else if segue.identifier == "userProfileSegue" {
+            let button = sender as! UIButton
+            let view = button.superview!
+            let cell = view.superview as! PostTableViewCell
+            let indexPath = homeFeedTableView.indexPathForCell(cell)
+            let user = postsArray[indexPath!.row]["author"] as! PFUser
+            let profileView = segue.destinationViewController as! ProfileViewController
+            profileView.user = user
+            
+        }
         
     }
     

@@ -22,9 +22,10 @@ class PostDetailViewController: UIViewController {
     
     @IBOutlet weak var postDetailLocationLabel: UILabel!
     @IBOutlet weak var postDetailTimeLabel: UILabel!
+    @IBOutlet weak var psotCommentLabel: UILabel!
+    @IBOutlet weak var postCaptionLabel: UILabel!
     
-    
-    @IBOutlet weak var postDetailImage: UIImageView!
+   
     
     
     override func viewDidLoad() {
@@ -36,6 +37,7 @@ class PostDetailViewController: UIViewController {
         let dateFormat = NSDateFormatter()
         dateFormat.dateFormat = "EEE, MMM d, h:mm a"
         self.postDetailTimeLabel.text = NSString(format: "%@", dateFormat.stringFromDate(dateUpdated)) as String
+        self.postCaptionLabel.text = self.post!["caption"] as? String
         
         print(post)
 

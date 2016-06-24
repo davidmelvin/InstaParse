@@ -101,16 +101,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g9C-sr-QrG">
-                                <rect key="frame" x="14" y="393" width="309" height="30"/>
+                                <rect key="frame" x="8" y="449" width="309" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4y-ji-bHa">
-                                <rect key="frame" x="331" y="393" width="36" height="30"/>
+                                <rect key="frame" x="330" y="448" width="36" height="30"/>
                                 <state key="normal" title="Send"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Alp-jl-Mv3">
-                                <rect key="frame" x="0.0" y="441" width="375" height="177"/>
+                                <rect key="frame" x="0.0" y="511" width="375" height="107"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6xW-Tv-OnU">
@@ -126,6 +126,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Vm-VL-JN0" customClass="PFImageView">
                                 <rect key="frame" x="0.0" y="145" width="375" height="220"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is a caption." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7l-En-Lv8">
+                                <rect key="frame" x="20" y="378" width="346" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -138,6 +144,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="postCaptionLabel" destination="P7l-En-Lv8" id="tzG-1V-RVn"/>
                         <outlet property="postDetailImageView" destination="3Vm-VL-JN0" id="93D-Iw-5d4"/>
                         <outlet property="postDetailLocationLabel" destination="M6S-Bc-lgy" id="r1z-kL-oRu"/>
                         <outlet property="postDetailTimeLabel" destination="wHb-yg-vUH" id="gvf-b8-Rnh"/>
@@ -206,9 +213,14 @@
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhP-NH-LPh">
                                                     <rect key="frame" x="0.0" y="71" width="375" height="256"/>
-                                                    <state key="normal" title="Button"/>
                                                     <connections>
-                                                        <segue destination="zPL-Kc-0LC" kind="push" id="8E7-rp-tv7"/>
+                                                        <segue destination="zPL-Kc-0LC" kind="push" identifier="postDetailSegue" id="8E7-rp-tv7"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZM-Kn-tWK">
+                                                    <rect key="frame" x="71" y="-4" width="84" height="30"/>
+                                                    <connections>
+                                                        <segue destination="eah-jy-lyN" kind="push" identifier="userProfileSegue" id="BEf-LH-TlK"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -363,7 +375,6 @@
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8j1-99-qbp">
                                                     <rect key="frame" x="0.0" y="-9" width="116" height="118"/>
-                                                    <state key="normal" title="Button"/>
                                                     <connections>
                                                         <segue destination="zPL-Kc-0LC" kind="push" id="4vD-CU-1g6"/>
                                                     </connections>
@@ -455,6 +466,7 @@
         <image name="user.png" width="700" height="700"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4vD-CU-1g6"/>
+        <segue reference="8E7-rp-tv7"/>
+        <segue reference="BEf-LH-TlK"/>
     </inferredMetricsTieBreakers>
 </document>

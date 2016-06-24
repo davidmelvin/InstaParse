@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 
 class ProfileViewController: UIViewController, UICollectionViewDataSource {
     
@@ -18,6 +19,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
 
     @IBOutlet weak var profileCollectionView: UICollectionView!
     @IBOutlet weak var noPostsLabel: UILabel!
+    var user : PFUser = PFUser.currentUser()!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +51,12 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     func refreshControlAction(refreshControl: UIRefreshControl) {
         // construct PFQuery
         let query = PFQuery(className: "Post")
-        query.whereKey("author", equalTo: PFUser.currentUser()!)
+        query.whereKey("author", equalTo: user)
         query.orderByDescending("createdAt")
         query.includeKey("author")
         //query.limit = (infiniteScrollCount+1)*POSTSPERSCROLL
         
-        
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         // fetch data asynchronously
         query.findObjectsInBackgroundWithBlock { (posts: [PFObject]?, error: NSError?) -> Void in
             if let posts = posts {
@@ -62,6 +64,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
                 self.posts = posts
                 print("Found \(self.posts.count) objects")
                 self.profileCollectionView.reloadData()
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 refreshControl.endRefreshing()
                 //self.isMoreDataLoading = false
                 if (self.posts.count == 0) {
