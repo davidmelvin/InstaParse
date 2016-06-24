@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 
 class ChoosePhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -80,7 +81,16 @@ class ChoosePhotoViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func postPhoto(sender: AnyObject) {
         //how do i pass it a photo?
-        Post.postUserImage(self.originalImage, withCaption: self.captionField.text, withCompletion: nil)
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        Post.postUserImage(self.originalImage, withCaption: self.captionLabel.text) { (succes: Bool, error: NSError?) in
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+        }
+//        Post.postUserImage(self.originalImage, withCaption: self.captionField.text, withCompletion: 
+//            {
+//                MBProgressHUD.hideHUDForView(self.view, animated: true)
+//            }
+//            
+//        )
         print("Image posted with caption \(self.captionField.text)")
     }
     

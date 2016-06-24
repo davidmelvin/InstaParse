@@ -17,6 +17,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postTimeLabel: UILabel!
     @IBOutlet weak var postImage: PFImageView!
     @IBOutlet weak var likeCountLabel: UILabel!
+    @IBOutlet weak var cellLikeLogo: UIImageView!
     
     
     override func awakeFromNib() {

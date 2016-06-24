@@ -108,9 +108,76 @@ class PhotoFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.postImage.file = self.postsArray[indexPath.row]["media"] as? PFFile
         cell.postImage.loadInBackground()
         
+        if let likedByArray = self.postsArray[indexPath.row]["likedBy"] as? [PFUser] {
+            cell.likeCountLabel.text = "\(likedByArray.count) likes"
+            if likedByArray.count == 1 {
+                cell.likeCountLabel.text = "1 like"
+            }
+        }
+        else {
+            cell.likeCountLabel.text = "0 likes"
+        }
+        
 
         return cell
     }
+    
+    @IBAction func likePressed(sender: AnyObject) {
+        
+        let button = sender as! UIButton
+        let view = button.superview!
+        let cell = view.superview as! PostTableViewCell
+        let indexPath = homeFeedTableView.indexPathForCell(cell)
+        let post = postsArray[indexPath!.row]
+        
+        if var likedByArray = post["likedBy"] as? [PFUser] {
+            if (likedByArray.contains(PFUser.currentUser()!))
+            {
+                likedByArray = likedByArray.filter() { $0 !== PFUser.currentUser() }
+                
+                if cell.cellLikeLogo.image == UIImage(named: "open_heart.png") {
+                    cell.cellLikeLogo.image = UIImage(named: "filled_heart")
+                }
+                else {
+                    cell.cellLikeLogo.image = UIImage(named: "open_heart.png")
+                }
+                //print("Already Liked:")
+            }
+            else {
+                likedByArray.append(PFUser.currentUser()!)
+                //print("First time liked")
+                
+                if cell.cellLikeLogo.image == UIImage(named: "open_heart.png") {
+                    cell.cellLikeLogo.image = UIImage(named: "filled_heart")
+                }
+                else {
+                    cell.cellLikeLogo.image = UIImage(named: "open_heart.png")
+                }
+
+                
+            }
+            post["likedBy"] = likedByArray
+            post.saveInBackground()
+            
+            //print("\(likedByArray.count) users have liked this")
+            //print(likedByArray)
+            
+            
+        }
+        else {
+            print("Liked by array doesn't exist")
+            var newLikedByArray : [PFUser] = []
+            newLikedByArray.append(PFUser.currentUser()!)
+            post["likedBy"] = newLikedByArray
+            post.saveInBackground()
+            
+        }
+        cell.likeCountLabel.text = "\(post["likedBy"].count) likes"
+        if post["likedBy"].count == 1 {
+            cell.likeCountLabel.text = "1 like"
+        }
+    }
+    
     @IBAction func onLogOut(sender: AnyObject) {
         PFUser.logOutInBackgroundWithBlock { (error: NSError?) in
             // PFUser.currentUser() will now be nil

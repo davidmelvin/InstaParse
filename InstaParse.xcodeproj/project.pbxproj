@@ -12,8 +12,6 @@
 		15683F7F1D1C9F1E0053E08B /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15683F7E1D1C9F1E0053E08B /* ProfileCollectionViewCell.swift */; };
 		15683F811D1CA0770053E08B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15683F801D1CA0770053E08B /* ProfileViewController.swift */; };
 		15845EF41D1B3BD100C507AD /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15845EF31D1B3BD100C507AD /* PostTableViewCell.swift */; };
-		15845EF61D1B3F4600C507AD /* heart_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15845EF51D1B3F4600C507AD /* heart_icon.png */; };
-		15845EFA1D1B56BC00C507AD /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 15845EF91D1B56BC00C507AD /* user.png */; };
 		15B926251D18901B00199E21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B926241D18901B00199E21 /* AppDelegate.swift */; };
 		15B926271D18901B00199E21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B926261D18901B00199E21 /* ViewController.swift */; };
 		15B9262A1D18901B00199E21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B926281D18901B00199E21 /* Main.storyboard */; };
@@ -21,9 +19,10 @@
 		15B9262F1D18901B00199E21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B9262D1D18901B00199E21 /* LaunchScreen.storyboard */; };
 		15B926371D18954300199E21 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B926361D18954300199E21 /* LoginViewController.swift */; };
 		15BCB08E1D1A104800DED078 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BCB08D1D1A104800DED078 /* Post.swift */; };
-		15BCB0901D1A152500DED078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15BCB08F1D1A152500DED078 /* Assets.xcassets */; };
-		15BCB0921D1A153200DED078 /* InstaParse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15BCB0911D1A153200DED078 /* InstaParse.jpg */; };
 		15CDC1931D1C857F00040FCC /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDC1921D1C857F00040FCC /* PostDetailViewController.swift */; };
+		15E70E3E1D1DD23D005619E5 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E70E3C1D1DD23D005619E5 /* user.png */; };
+		15E70E451D1DDA0B005619E5 /* filled_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E70E431D1DDA0B005619E5 /* filled_heart.png */; };
+		15E70E461D1DDA0B005619E5 /* open_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E70E441D1DDA0B005619E5 /* open_heart.png */; };
 		5FEC5B3D802C6220E6B78A62 /* Pods_InstaParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AF1A21208161AA36035090 /* Pods_InstaParse.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,8 +32,6 @@
 		15683F7E1D1C9F1E0053E08B /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		15683F801D1CA0770053E08B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		15845EF31D1B3BD100C507AD /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		15845EF51D1B3F4600C507AD /* heart_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heart_icon.png; path = ../../../Desktop/heart_icon.png; sourceTree = "<group>"; };
-		15845EF91D1B56BC00C507AD /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		15B926211D18901B00199E21 /* InstaParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B926241D18901B00199E21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15B926261D18901B00199E21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,9 +41,10 @@
 		15B926301D18901B00199E21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15B926361D18954300199E21 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		15BCB08D1D1A104800DED078 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		15BCB08F1D1A152500DED078 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		15BCB0911D1A153200DED078 /* InstaParse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InstaParse.jpg; path = Assets.xcassets/InstaParse.jpg; sourceTree = "<group>"; };
 		15CDC1921D1C857F00040FCC /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		15E70E3C1D1DD23D005619E5 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		15E70E431D1DDA0B005619E5 /* filled_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filled_heart.png; sourceTree = "<group>"; };
+		15E70E441D1DDA0B005619E5 /* open_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open_heart.png; sourceTree = "<group>"; };
 		3A62F90F23084E64A3096586 /* Pods-InstaParse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaParse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaParse/Pods-InstaParse.debug.xcconfig"; sourceTree = "<group>"; };
 		B1AF1A21208161AA36035090 /* Pods_InstaParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB479D5EA7F0178A5B491E3C /* Pods-InstaParse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaParse.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaParse/Pods-InstaParse.release.xcconfig"; sourceTree = "<group>"; };
@@ -94,12 +92,12 @@
 		15B926231D18901B00199E21 /* InstaParse */ = {
 			isa = PBXGroup;
 			children = (
-				15BCB0911D1A153200DED078 /* InstaParse.jpg */,
-				15BCB08F1D1A152500DED078 /* Assets.xcassets */,
+				15E70E431D1DDA0B005619E5 /* filled_heart.png */,
+				15E70E441D1DDA0B005619E5 /* open_heart.png */,
+				15E70E3C1D1DD23D005619E5 /* user.png */,
 				15B926241D18901B00199E21 /* AppDelegate.swift */,
 				15B926261D18901B00199E21 /* ViewController.swift */,
 				15B926281D18901B00199E21 /* Main.storyboard */,
-				15845EF91D1B56BC00C507AD /* user.png */,
 				15B9262B1D18901B00199E21 /* Assets.xcassets */,
 				15B9262D1D18901B00199E21 /* LaunchScreen.storyboard */,
 				15B926301D18901B00199E21 /* Info.plist */,
@@ -108,7 +106,6 @@
 				155F19D41D19F21D0003C9FA /* ChoosePhotoViewController.swift */,
 				15BCB08D1D1A104800DED078 /* Post.swift */,
 				15845EF31D1B3BD100C507AD /* PostTableViewCell.swift */,
-				15845EF51D1B3F4600C507AD /* heart_icon.png */,
 				15CDC1921D1C857F00040FCC /* PostDetailViewController.swift */,
 				15683F7E1D1C9F1E0053E08B /* ProfileCollectionViewCell.swift */,
 				15683F801D1CA0770053E08B /* ProfileViewController.swift */,
@@ -187,12 +184,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				15B9262F1D18901B00199E21 /* LaunchScreen.storyboard in Resources */,
+				15E70E3E1D1DD23D005619E5 /* user.png in Resources */,
+				15E70E461D1DDA0B005619E5 /* open_heart.png in Resources */,
+				15E70E451D1DDA0B005619E5 /* filled_heart.png in Resources */,
 				15B9262C1D18901B00199E21 /* Assets.xcassets in Resources */,
-				15BCB0901D1A152500DED078 /* Assets.xcassets in Resources */,
-				15845EF61D1B3F4600C507AD /* heart_icon.png in Resources */,
-				15845EFA1D1B56BC00C507AD /* user.png in Resources */,
 				15B9262A1D18901B00199E21 /* Main.storyboard in Resources */,
-				15BCB0921D1A153200DED078 /* InstaParse.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

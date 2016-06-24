@@ -127,11 +127,26 @@
                                 <rect key="frame" x="0.0" y="145" width="375" height="220"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is a caption." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7l-En-Lv8">
-                                <rect key="frame" x="20" y="378" width="346" height="21"/>
+                                <rect key="frame" x="9" y="414" width="346" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="open_heart.png" translatesAutoresizingMaskIntoConstraints="NO" id="dy1-gt-Bgb">
+                                <rect key="frame" x="8" y="373" width="25" height="33"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="888 likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vy-HA-qgj">
+                                <rect key="frame" x="41" y="379" width="167" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2e-VJ-KDN">
+                                <rect key="frame" x="6" y="374" width="30" height="30"/>
+                                <connections>
+                                    <action selector="likePressed:" destination="zPL-Kc-0LC" eventType="touchUpInside" id="Pvq-EW-K0j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -146,6 +161,7 @@
                     <connections>
                         <outlet property="postCaptionLabel" destination="P7l-En-Lv8" id="tzG-1V-RVn"/>
                         <outlet property="postDetailImageView" destination="3Vm-VL-JN0" id="93D-Iw-5d4"/>
+                        <outlet property="postDetailLikesLabel" destination="1vy-HA-qgj" id="6ag-AA-Bk1"/>
                         <outlet property="postDetailLocationLabel" destination="M6S-Bc-lgy" id="r1z-kL-oRu"/>
                         <outlet property="postDetailTimeLabel" destination="wHb-yg-vUH" id="gvf-b8-Rnh"/>
                         <outlet property="postDetailUsernameLabel" destination="Z7K-MB-pfv" id="liF-ti-xQ3"/>
@@ -168,7 +184,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="371" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Two-IG-S7z">
-                                <rect key="frame" x="0.0" y="49" width="375" height="571"/>
+                                <rect key="frame" x="0.0" y="48" width="375" height="571"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCellReuse" rowHeight="371" id="Hvw-YX-hOT" customClass="PostTableViewCell" customModule="InstaParse" customModuleProvider="target">
@@ -181,19 +197,10 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHT-zh-vgs" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="71" width="375" height="259"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user.png" translatesAutoresizingMaskIntoConstraints="NO" id="aOr-Pj-1HE">
-                                                    <rect key="frame" x="8" y="0.0" width="55" height="57"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ec3-LY-JIr">
                                                     <rect key="frame" x="71" y="18" width="304" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Since Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gum-N8-xve">
-                                                    <rect key="frame" x="71" y="36" width="304" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.59078452225130884" green="0.59078452225130884" blue="0.59078452225130884" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upL-CG-Cp4">
@@ -202,35 +209,50 @@
                                                     <color key="textColor" red="0.0" green="0.32220523305314241" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="x likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWT-IK-5qt">
-                                                    <rect key="frame" x="35" y="340" width="219" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999 likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWT-IK-5qt">
+                                                    <rect key="frame" x="42" y="340" width="219" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="heart_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="0zQ-EG-1F6">
-                                                    <rect key="frame" x="8" y="338" width="25" height="25"/>
-                                                </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhP-NH-LPh">
-                                                    <rect key="frame" x="0.0" y="71" width="375" height="256"/>
-                                                    <connections>
-                                                        <segue destination="zPL-Kc-0LC" kind="push" identifier="postDetailSegue" id="8E7-rp-tv7"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZM-Kn-tWK">
                                                     <rect key="frame" x="71" y="-4" width="84" height="30"/>
                                                     <connections>
                                                         <segue destination="eah-jy-lyN" kind="push" identifier="userProfileSegue" id="BEf-LH-TlK"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Since Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gum-N8-xve">
+                                                    <rect key="frame" x="71" y="37" width="304" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.59078452225130884" green="0.59078452225130884" blue="0.59078452225130884" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="user.png" translatesAutoresizingMaskIntoConstraints="NO" id="qNk-3M-9Py">
+                                                    <rect key="frame" x="13" y="-4" width="50" height="67"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fm-Fg-5pk">
+                                                    <rect key="frame" x="0.0" y="77" width="375" height="253"/>
+                                                    <connections>
+                                                        <segue destination="zPL-Kc-0LC" kind="push" identifier="postDetailSegue" id="Rc6-0h-72P"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxo-gH-b9b">
+                                                    <rect key="frame" x="8" y="335" width="31" height="30"/>
+                                                    <connections>
+                                                        <action selector="likePressed:" destination="AP7-t7-CUT" eventType="touchUpInside" id="uST-He-ESJ"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="open_heart.png" translatesAutoresizingMaskIntoConstraints="NO" id="aA8-b4-Wj7">
+                                                    <rect key="frame" x="8" y="338" width="26" height="23"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellLikeLogo" destination="aA8-b4-Wj7" id="Ufz-2L-VtW"/>
                                             <outlet property="likeCountLabel" destination="oWT-IK-5qt" id="TdJ-oo-eEZ"/>
                                             <outlet property="postImage" destination="BHT-zh-vgs" id="hby-Iw-0eE"/>
                                             <outlet property="postLocationLabel" destination="ec3-LY-JIr" id="WZS-E3-W6r"/>
                                             <outlet property="postTimeLabel" destination="gum-N8-xve" id="Xvm-sy-7yA"/>
-                                            <outlet property="postUserImage" destination="aOr-Pj-1HE" id="Inb-75-qsQ"/>
                                             <outlet property="postUsernameLabel" destination="upL-CG-Cp4" id="eg5-IS-Oos"/>
                                         </connections>
                                     </tableViewCell>
@@ -361,11 +383,12 @@
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This user doesn't have any pictures yet!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ0-LX-WWi">
                                 <rect key="frame" x="36" y="571" width="303" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l9U-jy-CbP">
                                 <rect key="frame" x="0.0" y="64" width="375" height="492"/>
+                                <color key="backgroundColor" red="1" green="0.074743433492410416" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BZp-gH-y5c">
                                     <size key="itemSize" width="108" height="101"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -374,7 +397,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profilePhotoCell" id="uNR-BI-c3d" customClass="ProfileCollectionViewCell" customModule="InstaParse" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="108" height="101"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="108" height="101"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="108" height="101"/>
@@ -466,11 +489,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart_icon.png" width="700" height="700"/>
-        <image name="user.png" width="700" height="700"/>
+        <image name="open_heart.png" width="547" height="502"/>
+        <image name="user.png" width="420" height="481"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Rc6-0h-72P"/>
         <segue reference="BEf-LH-TlK"/>
-        <segue reference="4vD-CU-1g6"/>
     </inferredMetricsTieBreakers>
 </document>

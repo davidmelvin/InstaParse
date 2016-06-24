@@ -24,9 +24,44 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var postDetailTimeLabel: UILabel!
     @IBOutlet weak var psotCommentLabel: UILabel!
     @IBOutlet weak var postCaptionLabel: UILabel!
+    @IBOutlet weak var postDetailLikesLabel: UILabel!
     
    
     
+    @IBAction func likePressed(sender: AnyObject) {
+        if var likedByArray = self.post!["likedBy"] as? [PFUser] {
+            if (likedByArray.contains(PFUser.currentUser()!))
+            {
+                likedByArray = likedByArray.filter() { $0 !== PFUser.currentUser() }
+                print("Already Liked:")
+            }
+            else {
+                likedByArray.append(PFUser.currentUser()!)
+                print("First time liked")
+                
+                
+            }
+            self.post!["likedBy"] = likedByArray
+            self.post!.saveInBackground()
+            
+            print("\(likedByArray.count) users have liked this")
+            //print(likedByArray)
+            
+            
+        }
+        else {
+            print("Liked by array doesn't exist")
+            var newLikedByArray : [PFUser] = []
+            newLikedByArray.append(PFUser.currentUser()!)
+            self.post!["likedBy"] = newLikedByArray
+            self.post!.saveInBackground()
+           
+        }
+        self.postDetailLikesLabel.text = "\(self.post!["likedBy"].count) likes"
+        if self.post!["likedBy"].count == 1 {
+            self.postDetailLikesLabel.text = "1 like"
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +75,17 @@ class PostDetailViewController: UIViewController {
         self.postDetailTimeLabel.text = NSString(format: "%@", dateFormat.stringFromDate(dateUpdated)) as String
         self.postCaptionLabel.text = self.post!["caption"] as? String
         
-        print(post)
+        if let likedByArray = self.post!["likedBy"] as? [PFUser] {
+            self.postDetailLikesLabel.text = "\(likedByArray.count) likes"
+            if likedByArray.count == 1 {
+                self.postDetailLikesLabel.text = "1 like"
+            }
+        }
+        else {
+            self.postDetailLikesLabel.text = "0 likes"
+        }
+        
+        //print(post)
 
 
         // Do any additional setup after loading the view.
